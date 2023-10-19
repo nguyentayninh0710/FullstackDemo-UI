@@ -1,0 +1,45 @@
+<div class="container">
+    <form (ngSubmit)="!todoForm.invalid && save()" #todoForm="ngForm">
+        <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h6 class="mb-2 text-primary">Todo Details</h6>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label for="description">Description</label>
+                                    <input type="text" class="form-control" id="description"
+                                        placeholder="Enter Description" [(ngModel)]="todo.description" required="required" minlength="5">
+                                </fieldset>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label for="date">Date</label>
+                                    <input type="date" class="form-control" id="date" required="required"
+                                        [ngModel]="todo.target | date: 'yyyy-MM-dd'"
+                                        (ngModelChange)="todo.target = $event">
+                                </fieldset>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="text-right">
+                                    <button type="button" id="submit" name="submit"
+                                        class="btn btn-secondary">Cancel</button>
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div *ngIf="error">{{error}}</div>
+</div>

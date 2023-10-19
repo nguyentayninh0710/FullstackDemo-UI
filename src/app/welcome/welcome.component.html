@@ -1,0 +1,7 @@
+<p>welcome {{name}}</p>
+<h1>You can manage your todos <a routerLink="/todos">Here</a></h1>
+<div class="container">
+    Click to show message {{message}}
+    <button type="button" class="btn btn-success" (click)="getWelcomeMessage()">1</button>
+    <button type="button" class="btn btn-success" (click)="getWelcomeMessageWithParrameter()">2</button>
+</div>
